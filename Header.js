@@ -2,13 +2,14 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'
 
-const Header = () => {
+const Header = ({ show }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>This is your TodoList !!</Text>
             <TouchableOpacity
                 activeOpacity={0.8}
                 style={styles.button}
+                onPress={show}
             >
                 <Ionicons name='ios-add' color='#FFFFFF' size={24} />
             </TouchableOpacity>

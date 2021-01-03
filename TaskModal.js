@@ -2,16 +2,22 @@ import React from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 import Modal from 'react-native-modal';
 
-const TaskModal = ({ isVisible }) => {
+const TaskModal = ({ isVisible, hide, add }) => {
+    let content = '';
     return (
         <Modal
             isVisible={isVisible}
             avoidKeyboard
             style={styles.modal}
+            onBackdropPress={hide}
         >
             <View style={styles.container}>
                 <TextInput 
                     placeholder="typing new todo"
+                    onChangeText={(text) => {
+                        content = text
+                    }}
+                    onEndEditing={() => add(content)}
                 />
             </View>
         </Modal>
